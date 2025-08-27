@@ -8,7 +8,6 @@ export PDSH_SSH_ARGS='-oBatchMode=yes -oStrictHostKeyChecking=accept-new'
 
 kill -9 $(lsof -t -i:29500)
 
-rm -rf outputs/
+#rm -rf outputs/
 
 pdsh -w $BACKENDAI_CLUSTER_HOSTS "cd $(pwd) && bash bai_llama8b_ddp.sh"
-
