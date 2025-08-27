@@ -13,6 +13,7 @@
 ### Clone repo & Install deps
 
 ```bash
+# ❗ NOTE: command would be run inside of vFolder (NFS)
 git clone https://github.com/lablup/torchtitan-scripts-only
 cd torchtitan-scripts-only
 bash setup_all.sh
