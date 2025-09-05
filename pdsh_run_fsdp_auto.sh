@@ -12,4 +12,6 @@ kill -9 $(lsof -t -i:29500)
 
 pdsh -f 100 -w $BACKENDAI_CLUSTER_HOSTS "nvidia-smi | grep MiB"
 
-pdsh -f 100 -w $BACKENDAI_CLUSTER_HOSTS "cd $(pwd) && bash bai_llama8b_fsdp_auto.sh"
+pdsh -f 100 -w $BACKENDAI_CLUSTER_HOSTS "cd $(pwd) && bash bai_llama8b_fsdp_auto_background.sh"
+
+tail -f ~/train.log

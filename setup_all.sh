@@ -5,4 +5,4 @@ export PDSH_MODULE_DIR=~/pdsh_modules
 export PDSH_RCMD_TYPE=ssh
 export PDSH_SSH_ARGS='-oBatchMode=yes -oStrictHostKeyChecking=accept-new'
 
-pdsh -w $BACKENDAI_CLUSTER_HOSTS "pip install torchtitan tyro"
+pdsh -f 256 -w $BACKENDAI_CLUSTER_HOSTS "nohup pip install -U torchtitan tyro &"
