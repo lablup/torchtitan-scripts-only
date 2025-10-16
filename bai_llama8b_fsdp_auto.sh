@@ -21,6 +21,8 @@ nvidia-smi --query-compute-apps=pid --format=csv,noheader | xargs -r kill -9
 kill -9 $(lsof -t -i:29500)
 sleep 5
 
+export NCCL_CUMEM_HOST_ENABLE=0 # /dev/shm UTF-8 NCCL Error fix
+
 torchrun --nnodes=$BACKENDAI_CLUSTER_SIZE --nproc_per_node=$GPU_COUNT --node_rank=$NODE_RANK \
   --rdzv_backend=static --rdzv_endpoint="main1:29500" \
   -m torchtitan.train --job.config_file $CONFIG_FILE
