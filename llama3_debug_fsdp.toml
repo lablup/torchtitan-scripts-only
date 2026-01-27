@@ -17,7 +17,7 @@ save_tb_folder = "tb"
 
 [model]
 name = "llama3"
-flavor = "8B"
+flavor = "debugmodel"
 tokenizer_path = "tokenizer.model"
 # converters = ["float8"]
 
