@@ -1,4 +1,4 @@
-# Torchtitan Llama3.1 8B pretraining
+# Torchtitan Llama3.1 8B(+debug) pretraining
 
 ## Setup
 
@@ -21,23 +21,15 @@ bash setup_all.sh
 
 This script will read `BACKENDAI_*` environment variables and setup all nodes within cluster.
 
-## Run with full GPUs
+## Train Llama 3 8B from scratch (requires 8+ H100 GPUs)
 
 ```bash
-./pdsh_run_fsdp_auto.sh
+bash pdsh_run_fsdp_auto.sh
 ```
 
-## Run with specifid GPUs
-
-1. Edit `bai_llama8b_ddp.sh`
+You can also test this script with small debug model (~100M params)
 
 ```bash
-export CUDA_VISIBLE_DEVICES='4,5,6,7' # <- edit this for target GPUs
-export GPU_COUNT=4 # <- match # of GPUs per Node
+bash pdsh_run_fsdp_auto_debug.sh
 ```
 
-2. Run `pdsh_run_ddp.sh`
-
-```bash
-./pdsh_run_ddp.sh
-```
