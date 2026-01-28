@@ -31,10 +31,10 @@ warmup_steps = 200  # lr scheduler warm up
 
 [training]
 local_batch_size = 2
-seq_len = 8192
+seq_len = 2048
 max_norm = 1.0  # grad norm clipping
 steps = 1000
-dataset = "c4"
+dataset = "c4_test"
 compile = true
 
 [parallelism]
