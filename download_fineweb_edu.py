@@ -41,9 +41,9 @@ def download_fineweb_edu(output_dir: str = "tests/assets/c4_test", num_samples: 
     from datasets import Dataset
     test_dataset = Dataset.from_list(samples)
 
-    # Save the dataset to disk
+    # Save the dataset as parquet
     os.makedirs(output_dir, exist_ok=True)
-    test_dataset.save_to_disk(output_dir)
+    test_dataset.to_parquet(os.path.join(output_dir, "data.parquet"))
 
     print(f"Dataset saved to {output_dir}")
     print(f"Dataset info: {test_dataset}")
